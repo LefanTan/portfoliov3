@@ -1,0 +1,32 @@
+:root {
+  --black: #424242;
+  --black-200: #616161;
+
+  --white: #f8f8f8;
+  --primary: #ffc9c9;
+}
+
+@tailwind base;
+
+@layer base {
+  body {
+    @apply text-black bg-white font-sans font-medium;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  h7 {
+    @apply font-serif;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
