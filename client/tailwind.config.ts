@@ -11,6 +11,7 @@ export default <Partial<Config>>{
         white: "var(--white)",
         black: "var(--black)",
         "black-200": "var(--black-200)",
+        "black-500": "var(--black-500)",
       },
       fontFamily: {
         sans: ["Raleway", "sans-serif"],

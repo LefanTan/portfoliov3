@@ -2,6 +2,7 @@
 
 @layer base {
   :root {
+    --black-500: #212121;
     --black: #424242;
     --black-200: #616161;
 
@@ -14,8 +15,11 @@
 
     // Usually the root __nuxt node
     > div {
-      //
     }
+  }
+
+  main {
+    min-height: 70vh;
   }
 
   h1,
@@ -46,7 +50,7 @@
   }
 
   .divider {
-    @apply h-0.5 bg-black w-full;
+    @apply h-[1px] sm:h-0.5 bg-black w-full;
   }
 
   .bnw {

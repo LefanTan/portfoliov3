@@ -17,5 +17,8 @@
     "nuxt": "^3.5.2",
     "nuxt-icon": "^0.4.1",
     "sass": "^1.62.1"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.11.0"
   }
 }

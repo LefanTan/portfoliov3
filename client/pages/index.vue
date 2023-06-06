@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import emailjs from "@emailjs/browser";
+
+const config = useRuntimeConfig();
+
 const testimonials = [
   {
     quote:
@@ -58,6 +62,25 @@ const blogs = [
       "Building Popin has been an interesting experience, biscuits here and biscuits there...",
   },
 ];
+
+function onInput(e: Event) {
+  const inputEl = e.target as HTMLInputElement;
+  inputEl.parentElement!.dataset.value = inputEl.value;
+}
+
+function onMessageSubmit(e: Event) {
+  e.preventDefault();
+  const formEl = e.target as HTMLFormElement;
+
+  emailjs.sendForm(
+    "service_s2du2od",
+    "template_dqmuthk",
+    formEl,
+    config.public.emailJS
+  );
+
+  formEl.reset();
+}
 </script>
 
 <template>
@@ -77,6 +100,8 @@ const blogs = [
           src="/assets/hero-img.png"
           alt="profile image"
           format="webp"
+          height="350px"
+          width="350px"
           class="border-item object-contain bnw w-full sm:max-w-[20rem] inline float-left mr-8 mb-4"
         />
         <span>
@@ -134,7 +159,7 @@ const blogs = [
           class="flex-1 flex flex-col gap-2 min-w-[20rem] group"
           to="/#projects"
         >
-          <h4 class="font-sans font-medium text-3xl">{{ project.title }}</h4>
+          <h4 class="font-sans text-3xl">{{ project.title }}</h4>
           <figcaption class="font-normal text-base line-clamp-2 mb-4">
             {{ project.description }}
           </figcaption>
@@ -155,7 +180,7 @@ const blogs = [
     <section id="blogs">
       <div class="flex items-center justify-between">
         <h2 class="title">blogs</h2>
-        <nuxt-link to="/projects" class="see-all"> see all </nuxt-link>
+        <nuxt-link to="/blogs" class="see-all"> see all </nuxt-link>
       </div>
       <div class="divider" />
 
@@ -184,17 +209,20 @@ const blogs = [
 
       <div class="divider" />
 
-      <form class="contact-form">
+      <form class="contact-form" @submit="onMessageSubmit">
         <div class="wrapper">
           <input required type="text" name="name" placeholder="name" />
           <input required type="email" name="email" placeholder="email" />
         </div>
-        <textarea
-          required
-          name="message"
-          rows="5"
-          placeholder="message"
-        ></textarea>
+        <div class="textarea-wrapper">
+          <textarea
+            required
+            name="message"
+            rows="1"
+            placeholder="message"
+            @input="onInput"
+          ></textarea>
+        </div>
 
         <button type="submit" class="submit">send</button>
       </form>
@@ -228,15 +256,30 @@ section {
 
   input,
   textarea {
-    @apply outline-none bg-transparent border-b-2 border-black flex-1 pb-2 text-xl;
+    @apply outline-none bg-transparent border-b border-black flex-1 pb-2 text-xl;
 
     &::placeholder {
       @apply text-black;
     }
   }
 
-  textarea {
-    @apply inline-block;
+  .textarea-wrapper {
+    @apply relative inline-grid;
+
+    textarea {
+      @apply inline-block relative;
+      grid-area: 1/1;
+    }
+
+    &::after {
+      display: inline-block;
+      content: attr(data-value) " ";
+      visibility: hidden;
+      white-space: pre-wrap;
+      width: auto;
+      grid-area: 1/1;
+      padding-bottom: 1rem;
+    }
   }
 
   .submit {
