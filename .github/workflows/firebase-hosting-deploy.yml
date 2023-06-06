@@ -1,11 +1,10 @@
-name: Deploy to Firebase Hosting on PR
+name: Deploy to Firebase Hosting
 
 on:
   workflow_dispatch:
     inputs:
       env:
-        required: true
-        description: "Deploy Client"
+        description: "Notes"
 
 jobs:
   build_and_deploy:

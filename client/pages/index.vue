@@ -76,6 +76,7 @@ const blogs = [
         <nuxt-img
           src="/assets/hero-img.png"
           alt="profile image"
+          format="webp"
           class="border-item object-contain bnw w-full sm:max-w-[20rem] inline float-left mr-8 mb-4"
         />
         <span>
@@ -105,7 +106,10 @@ const blogs = [
               <nuxt-img
                 :src="testimony.imgUrl"
                 alt="profile image"
-                class="border-item w-14 h-14 object-contain bnw"
+                class="border-item object-contain bnw"
+                width="56px"
+                height="56px"
+                preset="general"
               />
               <p class="font-semibold">
                 {{ testimony.person }} <br />
@@ -138,6 +142,8 @@ const blogs = [
             :src="project.imgUrl"
             :alt="`${project.title} image`"
             class="border-item object-cover h-auto sm:h-60 w-full mx-auto bg-white"
+            sizes="sm:100vw md:50vw lg:400px"
+            preset="general"
           />
           <span class="text-xl ml-auto group-hover:bg-primary">
             read more

@@ -10,7 +10,6 @@
     "deploy": "npm run generate && firebase deploy"
   },
   "devDependencies": {
-    "@nuxt/content": "^2.6.0",
     "@nuxt/image": "^0.7.1",
     "@nuxt/image-edge": "^1.0.0-28099902.2b6ed1c",
     "@nuxtjs/tailwindcss": "^6.7.0",
