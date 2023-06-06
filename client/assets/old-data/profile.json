@@ -1,0 +1,42 @@
+{
+  "id": 1,
+  "username": "lefan",
+  "email": "lefantan@hotmail.com",
+  "password": "$2a$08$Uu3nIixgObBN//4UMkTITe3t09Ro/KlbRJlEi/ppkV984oH5tEBnW",
+  "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE2NTUxODcxMDJ9.rdFHhlY5hhWigS9K4MJXCdNLERjLHZe0JqQXkqNHeck",
+  "createdAt": "2022-06-14T05:59:16.000Z",
+  "updatedAt": "2022-06-14T06:11:42.000Z",
+  "profile": {
+    "id": 1,
+    "firstName": "Lefan",
+    "lastName": "Tan",
+    "mainMediaUrl": "https://storage.googleapis.com/profile-bucket/1/tv_photo.jpg?GoogleAccessId=lefan-798%40portfoliov2-336008.iam.gserviceaccount.com&Expires=4810861226&Signature=BvE7TSHSogpY6mKyF9Mtp42yJIDFnoKTzCzw8yTLWVPX5FnAdFJDgCej1t%2FnvCVaaglmcMG4RGKIZ6dVYPs51miQai%2BaQZz4TcF1qhDQqVhksuhjZDGmh1rICyVTz%2BV7moUgIgQ7Vg9svVJsPfeDrlVO%2BPMnmwSeP7hyJ3hnUMOoksA4%2BiDOMkYmQjunJlD3%2FNyKYHugOafG%2BX7ZgSYrdQU74GsY61e%2BTiyP3ajld41n8bGE16z0K6XDFc2iCSSTbwTwTP52P184R7nmzD1li7L7Lu02KX1PcrQ3O7MkYhn9oS%2Fy0b2AUXLKj38FnC7qF7q8vxRrECeA3mKVVloiZg%3D%3D",
+    "mediaUrls": [
+      "https://storage.googleapis.com/profile-bucket/1/face.png?GoogleAccessId=lefan-798%40portfoliov2-336008.iam.gserviceaccount.com&Expires=4810861227&Signature=T7xLS1wLcK%2BKzoHGTrk08f34G15ucyom2MHqbeW1dijyLP4a86op0hl2E4ZCloVe03%2FZtQi5mm2G7tgaGCRfcSHXnaGh9HFy4NGNYU8gVnVZDYmKYjCEoA%2BDv06ZlKgxC8SXnJDsjOTtKASA09kOOzR9RdEgL80x%2B9hlKoxROqAM2yY863YwptNF21ypqosvZnqomWaB0F%2FZ3rPtxu45Bevp4X%2FxtFS%2BIhDw%2FxiBWjiEgrBgKxvSqhvNp1ZJYHo544LE%2FxXxdAApwmktsC692iTD5PDXSvJLKBTZKfYNyJxphHKLQP50jVw5poJa3mspIGwEzhv%2FzhLmDYB0SNCccw%3D%3D",
+      "https://storage.googleapis.com/profile-bucket/1/profile_backup.jpeg?GoogleAccessId=lefan-798%40portfoliov2-336008.iam.gserviceaccount.com&Expires=4810861226&Signature=Qv9xkn7L3AxzUdwjlTn79Y%2BlcpJJisKxT%2FqIWcdR00%2Fs%2BMj5jCfYZ20tale8vfBAYC%2FE7v52F6CSb3ja5%2Bbo4I64JqAp2Q45I38Dl17eCezIF2dug20pGH0QVoVPf%2BjPgTprI1oSFv3K%2BSS0W7XeSMydxVhYCYVzp8XfIcJCkDLqr%2BRU%2Bej%2BaWu9K6S4S6Q9RxGcv901Bu3nTPXjQn9LYC3lIJEw0lVWHjEOLthjNbgrzcXC0Iqz4B1P0kuIUF7lzljdmorJ6eDJ%2B%2FHFsU%2BmxRR5xHGppmmwYRrp8IScXVsOmfA7%2F9eP4%2BlNEnSCYrRavg6kpG4om%2BGwVw0tucFRkg%3D%3D",
+      "https://storage.googleapis.com/profile-bucket/1/ahgirl.jpg?GoogleAccessId=lefan-798%40portfoliov2-336008.iam.gserviceaccount.com&Expires=4810861226&Signature=BVJPCMWtkJLI%2FDZ5QLypCt89PKg9jIpaHKWZa4VqDpXhtnaZCrNl1x4nL4VjbiOkD9rR3C%2FwP2Az5phrnUINnSGIkhaw5m961cPvTQhydgxkpMhdOntVjDwWiUUX8Ew6S25K3118NQc9nYiEFSnm%2F8hRRLG2OkyoW69I2%2F3s77N%2Fkh16kHQoneyPOwcu0VnetuAyzhWHKjKFz4H7DITBJxpGImgRqLMRVOQrs4Y1oM7V1IySudybQuKH%2Ba2mB98QljwOlyXu8CImxoEpTxMKuo3zdlV7sdQgFsq5P2rtserRnQGJiqLNgsqcKtf59edKU%2BFYI%2B2DuEojRNnqwGN7EA%3D%3D"
+    ],
+    "resumeUrl": "https://storage.googleapis.com/profile-bucket/1/resume_cv.pdf?GoogleAccessId=lefan-798%40portfoliov2-336008.iam.gserviceaccount.com&Expires=4812644110&Signature=laTC2Jq2aPw121A3krj2M8RIySEB7n11S7aHNH4UCglF7lIGiaoLUnDzVvn0Rbjxh%2BR9uMkN5MP0kNhp9ob1aoK2I7610Deu5zbXkiZy9rTGd4q%2FWWlSiNlJyY%2BFfRjDVtyZAcj4r%2FdLF3WVpQ4B6KJ05GupUOmtfYIoYjRQ6pl4KIbd0n2OklWPMJ4b6U3hlVpwkyBi8TzVfCDWqRjvRHONPNmK0gHbGfG667qFRsb510kRrTAW9AW5byY503WaZGej7xAGRsQ3cTuxSfA%2F6eZ0iWuI%2FgSiLcGCoSTaQXnXWUW5squETBUIWdl9A80WOSZ%2FbRiEI6OiCxL5KUTZew%3D%3D",
+    "aboutMe": "Hey there, it's **Lefan** here. I'm currently working as a Frontend Engineer at [Ownit](https://www.ownit.co/).\r\n\\\r\n\\\r\nWhile I do lean towards frontend, during these past months, I've found myself really enjoying the motion of building **Full Stack** applications that solves problems. All the way from laying out services architecture, designing data models, designing a sleek and functional product; it's a lot of fun.\r\n\\\r\n\\\r\nBut during my free time, I like to play badminton/squash or walk around the neighbourhood, can't be sitting around all day!",
+    "github": "https://github.com/LefanTan",
+    "linkedin": "https://www.linkedin.com/in/lefantan/",
+    "skills": [
+      "React",
+      "HTML",
+      "CSS",
+      "Typescript",
+      "Javascript",
+      "Git",
+      "Docker",
+      "NextJS",
+      "Vue",
+      "Astro",
+      "GCP",
+      "PostgreSQL",
+      "NodeJS"
+    ],
+    "createdAt": "2022-06-14T05:59:16.000Z",
+    "updatedAt": "2023-05-24T04:21:08.000Z",
+    "userId": 1
+  }
+}

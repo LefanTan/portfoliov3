@@ -3,6 +3,9 @@ import type { Config } from "tailwindcss";
 export default <Partial<Config>>{
   theme: {
     extend: {
+      height: {
+        "1px": "1px",
+      },
       colors: {
         primary: "var(--primary)",
         white: "var(--white)",

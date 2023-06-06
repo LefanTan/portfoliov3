@@ -1,12 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "nuxt-icon",
+    "@nuxt/content",
+    "@nuxt/image-edge",
+  ],
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
   vite: {
     css: {
       preprocessorOptions: {
-        scss: {
-          additionalData: '@use "@/assets/styles/_mixins.scss" as *;',
-        },
+        scss: {},
       },
     },
   },

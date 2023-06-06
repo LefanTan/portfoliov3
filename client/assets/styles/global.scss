@@ -1,16 +1,21 @@
-:root {
-  --black: #424242;
-  --black-200: #616161;
-
-  --white: #f8f8f8;
-  --primary: #ffc9c9;
-}
-
 @tailwind base;
 
 @layer base {
+  :root {
+    --black: #424242;
+    --black-200: #616161;
+
+    --white: #f8f8f8;
+    --primary: #ffc9c9;
+  }
+
   body {
-    @apply text-black bg-white font-sans font-medium;
+    @apply text-black bg-white font-sans font-medium text-base sm:text-lg;
+
+    // Usually the root __nuxt node
+    > div {
+      //
+    }
   }
 
   h1,
@@ -20,7 +25,7 @@
   h5,
   h6,
   h7 {
-    @apply font-serif;
+    @apply font-serif font-semibold;
   }
 
   h1 {
@@ -29,4 +34,32 @@
 }
 
 @tailwind components;
+
+@layer components {
+  .max-width {
+    max-width: 55rem;
+    @apply px-4 mx-auto;
+  }
+
+  .border-item {
+    @apply border border-black rounded-sm;
+  }
+
+  .divider {
+    @apply h-0.5 bg-black w-full;
+  }
+
+  .bnw {
+    filter: grayscale(100%);
+  }
+
+  .desktop-only {
+    @apply hidden sm:block;
+  }
+
+  .mobile-only {
+    @apply sm:hidden;
+  }
+}
+
 @tailwind utilities;

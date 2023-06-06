@@ -1,0 +1,20 @@
+name: Deploy to Firebase Hosting on PR
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        required: true
+        description: "Deploy Client"
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci && npm run generate
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIOV3_2E979 }}"
+          projectId: portfoliov3-2e979
