@@ -56,6 +56,7 @@ export default defineNuxtConfig({
   image: {
     presets: {
       general: {
+        provider: "static",
         modifiers: {
           format: "webp",
           loading: "lazy",
