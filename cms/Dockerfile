@@ -32,9 +32,10 @@ ENV ADMIN_PASSWORD ${ADMIN_PASSWORD}
 
 ENV LOG_LEVEL 'debug'
 ENV STORAGE_LOCATIONS 'gcs'
-ENV STORAGE_GCS_DRIVER "gcs"
+ENV STORAGE_GCS_DRIVER 'gcs'
 ENV STORAGE_GCS_ROOT 'assets'
 ENV STORAGE_GCS_BUCKET 'lefan-portfolio-assets'
+ENV PUBLIC_URL 'https://cms.lefantan.com'
 
 RUN npm install
 
