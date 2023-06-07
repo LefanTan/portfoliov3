@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
-    "directus": "^9.5.0"
+    "directus": "^10.2.1"
   },
   "scripts": {
     "start": "npx directus bootstrap; npx directus start"
