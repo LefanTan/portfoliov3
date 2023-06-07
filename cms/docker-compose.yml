@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: 'postgres:alpine'
+    container_name: portfolio-postgresql
+    restart: always
+    volumes:
+      - "./data:/var/lib/postgresql/data"
+    ports:
+      - "5400:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: portfolio

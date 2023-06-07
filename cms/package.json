@@ -1,0 +1,11 @@
+{
+  "name": "lefan-directus",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "directus": "^9.5.0"
+  },
+  "scripts": {
+    "start": "npx directus bootstrap; npx directus start"
+  }
+}

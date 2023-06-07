@@ -143,7 +143,7 @@ footer {
 }
 
 dialog {
-  @apply fixed inset-0 bg-black-500 text-white w-screen h-screen z-30 overflow-auto;
+  @apply fixed h-full inset-0 bg-black-500 text-white w-screen z-30 overflow-auto;
 
   .exit-btn {
     @apply absolute top-4 right-4;
