@@ -1,3 +1,12 @@
+import { marked as defaultMarked } from "marked";
+
+defaultMarked.setOptions({
+  mangle: false,
+  headerIds: false,
+});
+
+export const marked = defaultMarked;
+
 export function throttle(fn: Function, wait = 200) {
   // Previously called time of the function
   let prev = 0;

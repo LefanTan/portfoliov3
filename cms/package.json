@@ -6,6 +6,10 @@
     "directus": "^10.2.1"
   },
   "scripts": {
-    "start": "npx directus bootstrap; npx directus start"
+    "start": "npx directus bootstrap; npx directus start",
+    "codegen": "npx directus-typescript-gen --host http://127.0.0.1:8055 --email test@hotmail.com --password admin --typeName DirectusTypes --outFile ../client/directus.d.ts"
+  },
+  "devDependencies": {
+    "directus-typescript-gen": "^0.2.1"
   }
 }

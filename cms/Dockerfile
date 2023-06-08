@@ -36,6 +36,8 @@ ENV STORAGE_GCS_DRIVER 'gcs'
 ENV STORAGE_GCS_ROOT 'assets'
 ENV STORAGE_GCS_BUCKET 'lefan-portfolio-assets'
 ENV PUBLIC_URL 'https://cms.lefantan.com'
+ENV CORS_ENABLED "true"
+ENV CORS_ORIGIN "https://lefantan.com,http://localhost:3000"
 
 RUN npm install
 
