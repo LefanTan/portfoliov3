@@ -15,6 +15,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
+      cmsUrl: "https://cms.lefantan.com",
+      userId: 1,
       emailJS: "user_z7fnBEw9AAY4ybnnXG6f8",
     },
   },
@@ -56,7 +58,6 @@ export default defineNuxtConfig({
   image: {
     presets: {
       general: {
-        provider: "static",
         modifiers: {
           format: "webp",
           loading: "lazy",

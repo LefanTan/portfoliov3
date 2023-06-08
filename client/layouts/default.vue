@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const menuOpen = ref(false);
 
+const config = useRuntimeConfig();
+const client = useDirectus();
+
+const user = await client.items("users").readOne(config.public.userId);
+
 onMounted(() => {
   if (process.client) {
     const updateMentionOpacity = () => {
@@ -114,17 +119,21 @@ onMounted(() => {
 
     <nav>
       <ul>
-        <li>
-          <nuxt-link to="/">resume</nuxt-link>
+        <li v-if="user?.resume">
+          <nuxt-link :to="`${config.public.cmsUrl}/assets/${user?.resume}`"
+            >resume</nuxt-link
+          >
         </li>
-        <li>
-          <nuxt-link to="/">github</nuxt-link>
+        <li v-if="user?.githubUrl">
+          <nuxt-link :to="user?.githubUrl" target="_blank">github</nuxt-link>
         </li>
-        <li>
-          <nuxt-link to="/">linkedIn</nuxt-link>
+        <li v-if="user?.linkedinUrl">
+          <nuxt-link :to="user?.linkedinUrl" target="_blank"
+            >linkedIn</nuxt-link
+          >
         </li>
-        <li>
-          <nuxt-link to="/">email</nuxt-link>
+        <li v-if="user?.email">
+          <nuxt-link :to="`mailto:${user?.email}`">email</nuxt-link>
         </li>
       </ul>
     </nav>

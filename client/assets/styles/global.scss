@@ -35,6 +35,14 @@
   h1 {
     @apply text-4xl font-bold;
   }
+
+  ol {
+    @apply list-decimal list-inside;
+  }
+
+  em {
+    @apply not-italic bg-primary;
+  }
 }
 
 @tailwind components;
