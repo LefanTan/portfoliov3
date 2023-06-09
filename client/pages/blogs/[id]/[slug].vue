@@ -24,9 +24,9 @@ const blogSections = blog?.sections?.map(
   (sectionItem) => sectionItem as DirectusTypes["blog_sections"]
 );
 
-const firstImageId = blogSections?.find(
+const firstImage = blogSections?.find(
   (sectionItem) => sectionItem.type === "image"
-)?.id;
+)?.imageFile;
 
 useSeoMeta({
   title: blog?.title,
@@ -38,8 +38,8 @@ useSeoMeta({
   twitterDescription: blog?.description,
   twitterCard: "summary_large_image",
 
-  twitterImage: () => `${config.public.cmsUrl}/assets/${firstImageId}`,
-  ogImage: () => `${config.public.cmsUrl}/assets/${firstImageId}`,
+  twitterImage: () => `${config.public.cmsUrl}/assets/${firstImage}`,
+  ogImage: () => `${config.public.cmsUrl}/assets/${firstImage}`,
 });
 </script>
 
@@ -111,5 +111,9 @@ h2 {
 
 .content {
   @apply mt-4 font-normal pb-20;
+
+  li {
+    @apply mb-2;
+  }
 }
 </style>

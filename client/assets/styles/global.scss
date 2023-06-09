@@ -14,7 +14,8 @@
     @apply text-black bg-white font-sans font-medium text-base sm:text-lg;
 
     // Usually the root __nuxt node
-    > div {
+    > div main {
+      @apply min-h-screen;
     }
   }
 
@@ -39,10 +40,6 @@
 
   ol {
     @apply list-decimal list-inside;
-  }
-
-  li {
-    @apply mb-2;
   }
 
   em {
