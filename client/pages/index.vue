@@ -103,9 +103,9 @@ function onMessageSubmit(e: Event) {
               <nuxt-img
                 :src="testimony.profileImage"
                 alt="profile image"
-                class="border-item object-contain bnw"
-                width="56px"
-                height="56px"
+                class="border-item object-contain h-14 w-14 bnw"
+                width="85px"
+                height="85px"
                 preset="general"
               />
               <p class="font-semibold">

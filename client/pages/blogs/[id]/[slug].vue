@@ -109,7 +109,7 @@ h2 {
   @apply border-b border-black flex justify-between py-4 sm:mt-4 text-black-200 font-normal;
 }
 
-.content {
+:deep(.content) {
   @apply mt-4 font-normal pb-20;
 
   li {

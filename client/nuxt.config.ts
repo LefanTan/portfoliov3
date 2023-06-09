@@ -6,16 +6,13 @@ export default defineNuxtConfig({
       crawlLinks: true,
     },
   },
-  experimental: {
-    payloadExtraction: true,
-  },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {},
-      },
-    },
-  },
+  // vite: {
+  //   css: {
+  //     preprocessorOptions: {
+  //       scss: {},
+  //     },
+  //   },
+  // },
   runtimeConfig: {
     public: {
       cmsUrl: "https://cms.lefantan.com",
@@ -65,7 +62,7 @@ export default defineNuxtConfig({
         modifiers: {
           format: "webp",
           loading: "lazy",
-          quality: 100,
+          quality: 90,
           placeholder: true,
         },
       },
