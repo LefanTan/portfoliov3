@@ -3,11 +3,18 @@ import emailjs from "@emailjs/browser";
 import { DirectusTypes } from "~/directus";
 
 const config = useRuntimeConfig();
-const client = useDirectus();
 
-const user = await client.items("users").readOne(config.public.userId, {
-  fields: ["*", "testimonials.*", "projects.*", "blogs.*"],
-});
+const { data } = await useFetch<{ data: DirectusTypes["users"] }>(
+  "/items/users/" + config.public.userId,
+  {
+    baseURL: config.public.cmsUrl,
+    query: {
+      fields: ["*", "testimonials.*", "projects.*", "blogs.*.*"].join(","),
+    },
+  }
+);
+
+const user = data.value?.data;
 
 const testimonials = user?.testimonials?.map((testimonyItem) => {
   const testimony = testimonyItem as DirectusTypes["testimonials"];
@@ -32,7 +39,7 @@ const blogs = user?.blogs?.map((blogItem) => {
 
   return {
     ...blog,
-    url: `/blogs/${blog.id}`,
+    url: `/blogs/${blog.id}/${convertToSlug(blog.title ?? "default-slug")}`,
   };
 });
 
@@ -57,7 +64,7 @@ function onMessageSubmit(e: Event) {
 </script>
 
 <template>
-  <main class="max-width pt-6 md:pt-16">
+  <main>
     <h1 class="text-6xl sm:text-8xl mb-1">{{ user?.title }}</h1>
     <div class="text-xl sm:text-2xl" v-html="pMarked(user?.subtitle ?? '')" />
     <section id="about">
@@ -72,6 +79,8 @@ function onMessageSubmit(e: Event) {
           height="350px"
           width="350px"
           class="border-item object-contain bnw w-full sm:max-w-[20rem] inline float-left mr-8 mb-4"
+          preset="general"
+          preload
         />
         <div v-html="pMarked(user?.about ?? '')"></div>
       </div>
@@ -114,73 +123,35 @@ function onMessageSubmit(e: Event) {
     <section id="projects">
       <div class="flex items-center justify-between">
         <h2 class="title">projects</h2>
-        <nuxt-link to="/projects" class="see-all"> see all </nuxt-link>
+        <nuxt-link to="/projects/all" class="see-all"> see all </nuxt-link>
       </div>
       <div class="divider" />
 
-      <div class="flex flex-wrap gap-8 mt-8">
-        <nuxt-link
-          v-for="project in projects"
-          class="flex-1 flex flex-col gap-2 min-w-[20rem]"
-          :class="{
-            'group cursor-pointer': project.link,
-            'cursor-default pointer-events-none': !project.link,
-          }"
-          :to="project.link ?? '/#projects'"
-        >
-          <h4 class="font-sans text-3xl">{{ project.name }}</h4>
-          <figcaption class="font-normal text-base line-clamp-2 mb-4">
-            {{ project.description }}
-          </figcaption>
-          <nuxt-img
-            :src="project.heroImg"
-            :alt="`${project.name} image`"
-            class="border-item object-cover h-auto sm:h-60 w-full mx-auto bg-white"
-            sizes="sm:100vw md:50vw lg:400px"
-            preset="general"
-          />
-          <span
-            v-if="project.link"
-            class="text-xl ml-auto group-hover:bg-primary"
-          >
-            read more
-          </span>
-        </nuxt-link>
-      </div>
+      <ul class="flex flex-wrap gap-8 mt-8">
+        <li class="flex-1 min-w-[20rem]" v-for="project in projects">
+          <project :project="project" />
+        </li>
+      </ul>
     </section>
 
     <section id="blogs">
       <div class="flex items-center justify-between">
         <h2 class="title">blogs</h2>
-        <nuxt-link to="/blogs" class="see-all"> see all </nuxt-link>
+        <nuxt-link
+          to="/blogs/all"
+          class="see-all"
+          :class="{
+            hidden: !blogs || blogs.length <= 5,
+          }"
+        >
+          see all
+        </nuxt-link>
       </div>
       <div class="divider" />
 
       <ul class="flex flex-col gap-10 mt-8">
-        <li v-for="blog in blogs">
-          <nuxt-link :to="blog.url" class="group">
-            <h4
-              class="font-sans text-2xl font-medium group-hover:bg-primary w-fit"
-            >
-              {{ blog.title }}
-            </h4>
-            <div
-              class="flex items-center justify-between text-black-200 font-normal"
-            >
-              <time class="italic">{{
-                formatUtcDate(blog.date_updated ?? blog.date_created!)
-              }}</time>
-              <span v-if="blog.sections"
-                >{{
-                  calculateBlogReadTime(
-                    blog.sections as DirectusTypes["blog_sections"][]
-                  )
-                }}
-                min read</span
-              >
-            </div>
-            <p class="mt-2 font-normal line-clamp-2">{{ blog.description }}</p>
-          </nuxt-link>
+        <li v-for="blog in blogs?.slice(0, 5)">
+          <blog :blog="blog" :url="blog.url" />
         </li>
       </ul>
     </section>
@@ -218,14 +189,14 @@ section {
   .title {
     @apply text-5xl sm:text-6xl font-semibold;
   }
+
+  &:last-of-type {
+    @apply pb-0;
+  }
 }
 
 .see-all {
   @apply text-2xl font-medium hover:bg-primary;
-}
-
-.divider {
-  @apply my-4;
 }
 
 .contact-form {

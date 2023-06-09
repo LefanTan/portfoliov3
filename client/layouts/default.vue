@@ -1,10 +1,18 @@
 <script setup lang="ts">
+import { DirectusTypes } from "~/directus";
+
 const menuOpen = ref(false);
 
 const config = useRuntimeConfig();
-const client = useDirectus();
 
-const user = await client.items("users").readOne(config.public.userId);
+const { data } = await useFetch<{ data: DirectusTypes["users"] }>(
+  "/items/users/" + config.public.userId,
+  {
+    baseURL: config.public.cmsUrl,
+  }
+);
+
+const user = data.value?.data;
 
 onMounted(() => {
   if (process.client) {
@@ -48,6 +56,20 @@ onMounted(() => {
       observer.observe(section);
     });
   }
+});
+
+useSeoMeta({
+  title: user?.seoTitle,
+  ogTitle: user?.seoTitle,
+  twitterTitle: user?.seoTitle,
+
+  description: user?.seoDescription,
+  ogDescription: user?.seoDescription,
+  twitterDescription: user?.seoDescription,
+  twitterCard: "summary_large_image",
+
+  twitterImage: () => `${config.public.cmsUrl}/assets/${user?.heroImage}`,
+  ogImage: () => `${config.public.cmsUrl}/assets/${user?.heroImage}`,
 });
 </script>
 
@@ -119,8 +141,8 @@ onMounted(() => {
 
     <nav>
       <ul>
-        <li v-if="user?.resume">
-          <nuxt-link :to="`${config.public.cmsUrl}/assets/${user?.resume}`"
+        <li v-if="user?.resumeFile">
+          <nuxt-link :to="`${config.public.cmsUrl}/assets/${user?.resumeFile}`"
             >resume</nuxt-link
           >
         </li>

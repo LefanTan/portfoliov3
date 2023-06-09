@@ -6,6 +6,9 @@ export default defineNuxtConfig({
       crawlLinks: true,
     },
   },
+  experimental: {
+    payloadExtraction: true,
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -56,6 +59,7 @@ export default defineNuxtConfig({
     },
   },
   image: {
+    domains: ["cms.lefantan.com", "storage.googleapis.com"],
     presets: {
       general: {
         modifiers: {

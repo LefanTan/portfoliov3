@@ -522,10 +522,13 @@ export interface components {
       githubUrl?: string | null;
       linkedinUrl?: string | null;
       email?: string | null;
+      seoTitle?: string | null;
+      seoDescription?: string | null;
       links?: string;
       blogs?: (number | components["schemas"]["ItemsBlogs"])[];
-      projects?: (number | components["schemas"]["ItemsProjects"])[];
       testimonials?: (number | components["schemas"]["ItemsTestimonials"])[];
+      projects?: (number | components["schemas"]["ItemsProjects"])[];
+      seo?: string;
     };
     Activity: {
       /** Unique identifier for the object. */

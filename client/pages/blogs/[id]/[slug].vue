@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { DirectusTypes } from "~/directus";
 
-const client = useDirectus();
 const config = useRuntimeConfig();
 const route = useRoute();
 
-const blog = await client
-  .items("blogs")
-  .readOne(route.params.id.toString(), {
-    fields: ["*.*"],
-  })
-  .catch(async () => {
-    await navigateTo("/404");
-  });
+const { data } = await useFetch<{ data: DirectusTypes["blogs"] }>(
+  "/items/blogs/" + route.params.id.toString(),
+  {
+    baseURL: config.public.cmsUrl,
+    query: {
+      fields: "*.*",
+    },
+  }
+);
+
+const blog = data.value?.data;
 
 if (!blog) {
   await navigateTo("/404");
@@ -22,14 +24,27 @@ const blogSections = blog?.sections?.map(
   (sectionItem) => sectionItem as DirectusTypes["blog_sections"]
 );
 
-useServerSeoMeta({
+const firstImageId = blogSections?.find(
+  (sectionItem) => sectionItem.type === "image"
+)?.id;
+
+useSeoMeta({
   title: blog?.title,
+  ogTitle: blog?.title,
+  twitterTitle: blog?.title,
+
   description: blog?.description,
+  ogDescription: blog?.description,
+  twitterDescription: blog?.description,
+  twitterCard: "summary_large_image",
+
+  twitterImage: () => `${config.public.cmsUrl}/assets/${firstImageId}`,
+  ogImage: () => `${config.public.cmsUrl}/assets/${firstImageId}`,
 });
 </script>
 
 <template>
-  <main class="max-width pt-6 sm:pt-16">
+  <main>
     <h1>{{ blog?.title }}</h1>
 
     <div class="metadata">
@@ -61,6 +76,7 @@ useServerSeoMeta({
               :alt="section.imageCaption ?? ''"
               sizes="lg:1000px sm:400px"
               class="border-item mx-auto mt-10 w-full max-w-3xl"
+              preset="general"
             />
             <figcaption class="text-base text-black-200">
               {{ section.imageCaption }}
@@ -74,15 +90,15 @@ useServerSeoMeta({
 
 <style scoped lang="scss">
 h1 {
-  @apply text-3xl sm:text-5xl;
+  @apply text-4xl sm:text-5xl;
 }
 
 h2 {
-  @apply mt-12 text-2xl sm:text-4xl;
+  @apply mt-12 text-3xl sm:text-4xl;
 }
 
 :deep(h3) {
-  @apply font-sans;
+  @apply font-sans text-xl mb-2;
 }
 
 .divider {

@@ -19,6 +19,7 @@
   }
 
   main {
+    @apply max-width pt-6 pb-20 md:pt-12;
     min-height: 70vh;
   }
 
@@ -40,6 +41,10 @@
     @apply list-decimal list-inside;
   }
 
+  li {
+    @apply mb-2;
+  }
+
   em {
     @apply not-italic bg-primary;
   }
@@ -58,7 +63,7 @@
   }
 
   .divider {
-    @apply h-[1px] sm:h-0.5 bg-black w-full;
+    @apply h-[1px] sm:h-0.5 bg-black w-full my-4;
   }
 
   .bnw {

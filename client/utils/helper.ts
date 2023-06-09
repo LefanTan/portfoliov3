@@ -74,3 +74,14 @@ export function calculateBlogReadTime(
 
   return Math.ceil(totalWords / 200);
 }
+
+/**
+ * Convert a sentence to slug safe format
+ * Ex. "What's the best way to learn React!" -> "whats-the-best-way-to-learn-react"
+ * @param str
+ * @returns
+ */
+export function convertToSlug(str: string) {
+  const specialStripped = str.replace(/[^a-zA-Z0-9-\s]/g, "");
+  return specialStripped.replace(/\s+/g, "-").toLowerCase();
+}
