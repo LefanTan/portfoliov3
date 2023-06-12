@@ -70,7 +70,7 @@ useSeoMeta({
         </div>
 
         <div v-if="section.type === 'image'">
-          <figure class="flex flex-col items-center gap-4">
+          <figure class="flex flex-col items-center gap-4 mb-4">
             <nuxt-img
               :src="`${config.public.cmsUrl}/assets/${section.imageFile}`"
               :alt="section.imageCaption ?? ''"
@@ -97,10 +97,6 @@ h2 {
   @apply mt-12 text-3xl sm:text-4xl;
 }
 
-:deep(h3) {
-  @apply font-sans text-xl mb-2;
-}
-
 .divider {
   @apply my-4;
 }
@@ -112,8 +108,39 @@ h2 {
 :deep(.content) {
   @apply mt-4 font-normal pb-20;
 
+  h3,
+  h4 {
+    @apply font-sans;
+  }
+
+  h3 {
+    @apply text-xl mb-2;
+  }
+
+  blockquote {
+    @apply pl-4 text-base bg-gray-100 p-3 relative;
+
+    &::before {
+      content: "";
+      @apply absolute top-0 bottom-0 left-0 bg-primary w-1;
+    }
+  }
+
   li {
     @apply mb-2;
+
+    &::marker {
+      @apply inline-block mr-5;
+    }
+  }
+
+  a {
+    @apply relative font-medium;
+
+    &:before {
+      content: "";
+      @apply h-0.5 w-full absolute bottom-0 left-0 bg-primary;
+    }
   }
 }
 </style>

@@ -40,6 +40,8 @@ At this point of my (short) career, I've worked with plenty of NextJS and Astro 
 
 4. Lots of nice features that when combined, make for a more pleasant DX experience.
 
+5. Nitro Server is extremely lightweight, and are compatible with cloud functions (AWS Lambda, GC Functions). Read more:https://nitro.unjs.io/deploy/providers/firebase
+
 **Cons**
 
 1. Nuxt3 is still immature compare to Nuxt2, that uses Vue2.
