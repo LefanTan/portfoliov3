@@ -16,7 +16,7 @@ defineProps<{
     :to="project.link ?? '/#projects'"
   >
     <h4 class="font-sans text-3xl">{{ project.name }}</h4>
-    <figcaption class="font-normal text-base line-clamp-2 mb-4">
+    <figcaption class="font-normal text-base line-clamp-2 sm:h-12 mb-4">
       {{ project.description }}
     </figcaption>
     <nuxt-img
