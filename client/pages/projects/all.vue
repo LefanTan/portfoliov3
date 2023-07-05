@@ -38,8 +38,8 @@ useSeoMeta({
       {{ description }}
     </p>
     <div class="divider my-4" />
-    <ul class="flex flex-wrap gap-8 mt-8">
-      <li class="flex-1 min-w-[20rem]" v-for="project in projects">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
+      <li class="flex min-w-[20rem]" v-for="project in projects">
         <project :project="project" />
       </li>
     </ul>
